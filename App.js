@@ -11,9 +11,9 @@ export default class App extends React.Component {
 
         <Appbar />
 
-        {/* <MemoListScreen /> */}
+        <MemoListScreen />
 
-        <MemoDetailScreen />
+        {/* <MemoDetailScreen /> */}
 
       </View>
     );
