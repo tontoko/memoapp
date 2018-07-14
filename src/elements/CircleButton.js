@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight } from 'react-native';
 import { Font } from 'expo';
 import brands from '../../assets/fonts/fa-brands-400.ttf';
 import regular from '../../assets/fonts/fa-regular-400.ttf';
@@ -21,7 +21,7 @@ class CircleButton extends React.Component {
 
     render() {
         // const style = this.props.style;
-        const { style, color } = this.props;
+        const { style, color, onPress } = this.props;
 
         let bgColor = '#E31676';
         let textColor = '#fff';
@@ -33,25 +33,31 @@ class CircleButton extends React.Component {
 
         return (
             // 配列でスタイルを指定すると後ろのもので上書きされる
-            <View style={[styles.circleButton, style, { backgroundColor: bgColor }]}>
-                {
-                    this.state.fontLoaded ? (
-                        <Text style={[styles.circleButtonTitle, { color: textColor }]}>
-                            {this.props.children}
-                        </Text>
-                    ) : null
-                }
-            </View>
+            <TouchableHighlight style={[styles.container, style]} onPress={onPress} underlayColor="transparent">
+                <View style={[styles.circleButton, { backgroundColor: bgColor }]}>
+                    {
+                        this.state.fontLoaded ? (
+                            <Text style={[styles.circleButtonTitle, { color: textColor }]}>
+                                {this.props.children}
+                            </Text>
+                        ) : null
+                    }
+                </View>
+            </TouchableHighlight>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    circleButton: {
+    container: {
         position: 'absolute',
         bottom: 32,
         right: 32,
         width: 48,
+        height: 52,
+    },
+    circleButton: {
+        marginBottom: 4,
         height: 48,
         backgroundColor: '#E31676',
         borderRadius: 24,
@@ -60,7 +66,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.5,
         shadowRadius: 3,
-        elevation: 5,
+        elevation: 2,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
