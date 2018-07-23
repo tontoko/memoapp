@@ -20,28 +20,6 @@ const config = {
 };
 firebase.initializeApp(config);
 
-// export default class App extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-
-//         <Appbar />
-
-//         <SignupScreen />
-
-//         {/* <LoginScreen /> */}
-
-//         {/* <MemoEditScreen /> */}
-
-//         {/* <MemoListScreen /> */}
-
-//         {/* <MemoDetailScreen /> */}
-
-//       </View>
-//     );
-//   }
-// }
-
 const App = createStackNavigator({
   Login: { screen: LoginScreen },
   Signup: { screen: SignupScreen },
