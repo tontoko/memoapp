@@ -4,8 +4,8 @@ import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-nat
 
 class LoginScreen extends React.Component {
     state = {
-        email: '',
-        password: '',
+        email: 'test@test.com',
+        password: 'testtest',
     }
 
     handleSubmit() {
