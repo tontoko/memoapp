@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import CircleButton from '../elements/CircleButton';
 
 const dateString = (date) => {
+    if (data == null) { return ''; }
     const str = date.toDate().toISOString();
     // split('') ''内の文字で配列に分割
     return str.split('T')[0];
@@ -28,8 +29,8 @@ class MemoDetailScreen extends React.Component {
             <View style={styles.container}>
                 <View style={styles.memoHeader}>
                     <View>
-                        <Text style={styles.memoHeaderTitle}>{this.state.memo.body.substring(0, 10)}</Text>
-                        <Text style={styles.memoHeaderDate}>{dateString(this.state.memo.createdOn)}</Text>
+                        <Text style={styles.memoHeaderTitle}>{memo.body ? memo.body.substring(0, 10) : ''}</Text>
+                        <Text style={styles.memoHeaderDate}>{dateString(memo.createdOn)}</Text>
                     </View>
                 </View>
 
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     editButton: {
-        top: 75,
+        top: 68,
     }
 });
 

@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableHighlight, FlatList } from 'react-nati
 
 const dateString = (date) => {
     console.log(date);
+    if (data == null) { return '';}
     const str = date.toDate().toISOString();
     // split('') ''内の文字で配列に分割
     return str.split('T')[0];

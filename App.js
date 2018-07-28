@@ -9,6 +9,7 @@ import MemoEditScreen from './src/screens/MemoEditScreen';
 import MemoCreateScreen from './src/screens/MemoCreateScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignupScreen from './src/screens/SignupScreen';
+import {Platform} from 'react-native';
 import ENV from './env.json';
 
 require("firebase/firestore");
@@ -38,6 +39,16 @@ const App = createStackNavigator({
       headerBackTitle: null,
       headerStyle: {
         backgroundColor: '#265366',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 2,
+        ...Platform.select({
+          android: {
+            height: 80,
+            paddingTop: 20,
+          },
+        })
       },
       headerTitleStyle: {
         color: '#fff',
@@ -45,15 +56,5 @@ const App = createStackNavigator({
       },
     },
   })
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#FFFDF6',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     paddingTop: 80,
-//   },
-// });
 
 export default App;
